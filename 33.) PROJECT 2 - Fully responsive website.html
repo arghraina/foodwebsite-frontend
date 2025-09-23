@@ -5,15 +5,228 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Delivery Site | foodsafe.com</title>
-    <link rel="stylesheet" href="33.) project 2 css file.css">
 
     <!-- Font family links :- -->
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Nova+Square&family=Whisper&display=swap"
         rel="stylesheet">
 
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nova Square', sans-serif;
+        }
 
-    <!-- To make the website for phone, I will add media query in the following way: -->        
-    <link rel="stylesheet" media="screen and (max-width:878px)"href="33.) project 2 phone.css">
+        /* Navbar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: #ff7043;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #navbar #logo img {
+            width: 120px;
+            height: auto;
+        }
+
+        #navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        #navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Home Section */
+        #home {
+            text-align: center;
+            padding: 60px 20px;
+            background: #ffe0b2;
+        }
+
+        #home .h-primary {
+            font-family: 'Anton', sans-serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        #home .p-primary {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #home .p-secondary {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        #btn-1 {
+            padding: 12px 30px;
+            font-size: 18px;
+            background-color: #ff7043;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #btn-1:hover {
+            background-color: #f4511e;
+        }
+
+        /* Services Section */
+        .services {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #fff3e0;
+        }
+
+        #serve {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        #serve>div {
+            width: 300px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        #serve>div:hover {
+            transform: translateY(-10px);
+        }
+
+        #serve img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Clients Section */
+        .clients {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #ffe0b2;
+        }
+
+        .clientlogos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .clientlogos img {
+            width: 120px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Contact Us */
+        .contactus {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #fff3e0;
+        }
+
+        .contactbox {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .inp {
+            padding: 10px;
+            width: 300px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        textarea.inp {
+            resize: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff7043;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Responsive for laptop and smaller screens */
+        @media (max-width: 1024px) {
+            #navbar ul {
+                gap: 15px;
+            }
+
+            #home .h-primary {
+                font-size: 36px;
+            }
+
+            #btn-1 {
+                font-size: 16px;
+                padding: 10px 25px;
+            }
+
+            #serve>div {
+                width: 250px;
+            }
+
+            .clientlogos img {
+                width: 100px;
+            }
+
+            .inp {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            #serve {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .clientlogos {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -91,18 +304,19 @@
     <section class="contactus">
         <h1 class="h-primary">CONTACT US : </h1>
         <div class="contactbox">
-            <form class="form"action="backend.php">
-                <input class="inp" type="text"placeholder="enter your name">
-                <input class="inp" type="number"placeholder="enter your phone number">
-                <input class="inp" type="email"placeholder="enter your email id">
-                <textarea class="inp" placeholder="Any Messages for us: "name="message" id="message"cols='22'rows='9'></textarea>
-                <input class="inp" type="submit"value="submit here">
+            <form class="form" action="backend.php">
+                <input class="inp" type="text" placeholder="enter your name">
+                <input class="inp" type="number" placeholder="enter your phone number">
+                <input class="inp" type="email" placeholder="enter your email id">
+                <textarea class="inp" placeholder="Any Messages for us: " name="message" id="message" cols='22'
+                    rows='9'></textarea>
+                <input class="inp" type="submit" value="submit here">
             </form>
         </div>
     </section>
 
     <footer>
-        <div class="foot">copyright &copy;   (www.foodsafe.com)  &nbsp; &nbsp; All rights reserved.</div>
+        <div class="foot">copyright &copy; (www.foodsafe.com) &nbsp; &nbsp; All rights reserved.</div>
     </footer>
 </body>
 
